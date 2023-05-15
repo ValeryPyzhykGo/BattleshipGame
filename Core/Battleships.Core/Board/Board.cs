@@ -1,7 +1,8 @@
 ﻿using Battleships.Core.Exceptions;
 using System;
+using System.Linq;
 
-namespace Battleships.Core.Board
+namespace Battleships.Core
 {
    internal class Board : IBoard
    {
@@ -53,6 +54,10 @@ namespace Battleships.Core.Board
          var (columnConverted, rowConverted) = ValidateAndConvertCoordinates( column, row );
          return _cells[columnConverted, rowConverted]?.Status == CellStatus.Hit ? _cells[columnConverted, rowConverted].Ship.ShipClass : null;
       }
+      public bool IsReadyDoStart()
+      {
+         return _ships.All( x => x != null );
+      }
 
       public bool TryPlaceShip( char column, int row, bool isVertical, Ship ship )
       {
@@ -61,6 +66,11 @@ namespace Battleships.Core.Board
             return false;
          }
          var (columnConverted, rowConverted) = ValidateAndConvertCoordinates( column, row );
+
+         if ( _ships[(int) ship.ShipClass] != null )
+         {
+            throw new ShipClassAlreadyPresentedException();
+         }
 
          var length = ship.GetShipLength();
          var columnToCheck = columnConverted;

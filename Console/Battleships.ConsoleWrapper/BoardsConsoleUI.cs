@@ -1,5 +1,4 @@
 ﻿using Battleships.Core;
-using Battleships.Core.Board;
 
 namespace Battleships.ConsoleWrapper
 {

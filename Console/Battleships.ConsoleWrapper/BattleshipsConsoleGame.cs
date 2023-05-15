@@ -78,16 +78,16 @@ namespace Battleships.ConsoleWrapper
       {
          _console.Clear();
          _boardsUI.ShowBoards( game.PlayerBoard, game.OpponentBoard );
-         var (playerMoveResult, aiMoveResult) = MakeMoveWithRetryInCaseOfBadMove( game );
+         
          while ( !game.IsOver )
          {
+            var (playerMoveResult, aiMoveResult) = MakeMoveWithRetryInCaseOfBadMove( game );
             _console.Clear();
             _boardsUI.ShowBoards( game.PlayerBoard, game.OpponentBoard );
             WriteMoveResult( _messages.UserName, playerMoveResult );
             WriteMoveResult( _messages.AIName, aiMoveResult );
-            (playerMoveResult, aiMoveResult) = MakeMoveWithRetryInCaseOfBadMove( game );
+            
          }
-
          _console.WriteLine( _messages.GameOver );
          _console.WriteLine( _messages.GetPlayerWinMessage( game.GetWinner().Value ) );
       }
