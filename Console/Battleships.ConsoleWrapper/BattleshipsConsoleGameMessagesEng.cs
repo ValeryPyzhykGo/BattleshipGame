@@ -50,7 +50,7 @@ namespace Battleships.ConsoleWrapper
 
       public string GetHitMessage( string playerName, ShipClass shipClass )
       {
-         return $"{UserName} hit {shipClass}!";
+         return $"{playerName} hit {shipClass}!";
       }
 
       public string GetSankMessage( ShipClass shipClass )
