@@ -28,12 +28,12 @@ namespace Battleships.Core
 
       private char GetRandomColumn()
       {
-         return (char) ( BattleshipsGameConstans.FirstColumnLetter + _rand.Next( 0, BattleshipsGameConstans.BoardSideSize ) );
+         return (char) ( BoardSize.FirstColumnLetter + _rand.Next( 0, BoardSize.BoardSideSize ) );
       }
 
       private int GetRandomRow()
       {
-         return _rand.Next( BattleshipsGameConstans.BoardFirstRowNumber, BattleshipsGameConstans.BoardLastRowNumber );
+         return _rand.Next( BoardSize.BoardFirstRowNumber, BoardSize.BoardLastRowNumber );
       }
    }
 }

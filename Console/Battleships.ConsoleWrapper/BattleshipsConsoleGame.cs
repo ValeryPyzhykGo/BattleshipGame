@@ -149,7 +149,7 @@ namespace Battleships.ConsoleWrapper
          _console.WriteLine( _messages.EnterColumnLetterMessage );
          var columnString = _console.ReadLine();
 
-         while ( columnString.Length != 1 || columnString[0] < BattleshipsGameConstans.FirstColumnLetter || columnString[0] > BattleshipsGameConstans.LastColumnLetter )
+         while ( columnString.Length != 1 || columnString[0] < BoardSize.FirstColumnLetter || columnString[0] > BoardSize.LastColumnLetter )
          {
             _console.WriteLine( _messages.TheColumLetterIsIncorrectMessage );
             _console.WriteLine( _messages.TryAgainMessage );
@@ -161,7 +161,7 @@ namespace Battleships.ConsoleWrapper
          var rowStirng = _console.ReadLine();
          int row;
 
-         while ( !int.TryParse( rowStirng, out row ) || row < BattleshipsGameConstans.BoardFirstRowNumber || row > BattleshipsGameConstans.BoardLastRowNumber )
+         while ( !int.TryParse( rowStirng, out row ) || row < BoardSize.BoardFirstRowNumber || row > BoardSize.BoardLastRowNumber )
          {
             _console.WriteLine( _messages.TheRowNumberIsIncorrectMessage );
             _console.WriteLine( _messages.TryAgainMessage );
